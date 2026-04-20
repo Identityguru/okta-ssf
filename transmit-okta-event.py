@@ -72,10 +72,11 @@ def generate_ssf_event(private_key: str, kid: str, push_endpoint: str) -> str:
     # aud MUST typically be the Okta domain
     aud = f"https://{OKTA_DOMAIN}"
 
-    # Subject: iss_sub format — iss is your transmitter, sub is the Okta UID
+    # Subject: iss_sub format — iss must be the Okta tenant (not the transmitter)
+    # because the subject is an Okta-managed user identified by their Okta UID.
     sub_id = {
         "format": "iss_sub",
-        "iss": ISS,
+        "iss": f"https://{OKTA_DOMAIN}",
         "sub": SUBJECT_OKTA_UID,
     }
 
