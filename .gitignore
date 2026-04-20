@@ -1,0 +1,13 @@
+# Local Netlify folder
+.netlify
+
+# Private key material
+rsa-keypair.json
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# macOS
+.DS_Store
